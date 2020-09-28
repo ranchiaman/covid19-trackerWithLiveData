@@ -12,7 +12,7 @@ function updateMap() {
                      <td>${data.statewise[i].recovered}</td>
                      <td>${data.statewise[i].deaths}</td>
                      <td>${data.statewise[i].confirmed}</td>`;
-                    document.getElementById("row").appendChild(final);
+                document.getElementById("row").appendChild(final);
             }
 
             // Combined - Confirmed
@@ -33,7 +33,7 @@ function updateMap() {
             document.getElementById("recovered").appendChild(total_recovered);
 
             //Last update time
-            let update = document.createElement("h2");
+            let update = document.createElement("h4");
             update.innerHTML = `${data.statewise[0].lastupdatedtime}`;
             document.getElementById("update_time").appendChild(update);
         });
