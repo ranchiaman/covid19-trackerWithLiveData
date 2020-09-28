@@ -78,28 +78,135 @@
             outline: none !important;
             box-shadow: none;
         }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                /* background-color: lightblue; */
+
+            }
+
+            tr {
+                margin-bottom: 20px;
+            }
+
+            /* first row of every new state */
+            td:first-child {
+                font-weight: bold;
+            }
+
+            td:nth-child(2) {
+                background-color: #e04c29;
+                color: #fff;
+                font-weight: 900;
+            }
+
+            td:nth-child(3) {
+                background-color: blue;
+                color: #fff;
+            }
+
+            td:nth-child(4) {
+                background-color: green;
+                color: #fff;
+            }
+
+            td:nth-child(5) {
+                background-color: black;
+                color: #fff;
+            }
+
+            td:nth-child(6) {
+                background-color: red;
+                color: #fff;
+            }
+        }
+
+        @media only screen and (max-width: 760px),
+        (min-device-width: 768px) and (max-device-width: 1024px) {
+
+            /* Force table to not be like tables anymore */
+            table,
+            thead,
+            tbody,
+            th,
+            td,
+            tr {
+                display: block;
+            }
+
+            /* Hide table headers (but not display: none;, for accessibility) */
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            tr {
+                border: 1px solid #ccc;
+            }
+
+            td {
+                /* Behave  like a "row" */
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 50%;
+            }
+
+            td:before {
+                /* Now like a table header */
+                position: absolute;
+                /* Top/left values mimic padding */
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+            }
+
+
+            td:nth-of-type(1):after {
+                content: "  SN ";
+                float: right;
+            }
+
+            td:nth-of-type(2):after {
+                content: "  State ";
+                float: right;
+            }
+
+            /* td:nth-of-type(2):before { content: "Last Name"; } */
+            td:nth-of-type(3):after {
+                content: "  Active";
+                float: right;
+            }
+
+            td:nth-of-type(4):after {
+                content: "  Recovered";
+                float: right;
+            }
+
+            td:nth-of-type(5):after {
+                content: "  Deaths";
+                float: right;
+            }
+
+            td:nth-of-type(6):after {
+                content: " Confirmed";
+                float: right;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <div id='map'></div>
-
-
-    </div>
-
     <div class="container">
         <div class="jumbotron">
             <h1>COVID 19 INDIA TRACKING APP</h1>
-            <p>Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus. Most
-                people infected with the
-                COVID-19 virus will experience mild to moderate respiratory illness and recover without requiring
-                special treatment.
-                Older people, and those with underlying medical problems like cardiovascular disease, diabetes, chronic
-                respiratory disease,
-                and cancer are more likely to develop serious illness</p>
+            <h3>COVID19-India API - A volunteer-driven, crowd-sourced database for COVID-19 stats & patient tracing in
+                India.</h3>
+            <button type="button" class="btn btn-danger btn-lg">GET LIVE UPDATES</button>
         </div>
-        <!-- <p>This is some text.</p>      
-          <p>This is another text.</p>       -->
     </div>
 
     <div id="new" class="container">
@@ -115,8 +222,8 @@
             <h3>Recovered</h3>
         </button>
 
-        <button type="button" id="update_time" class="btn btn-info" style="width: 300px;">
-            <h3>LAST UPDATE TIME </h3>
+        <button type="button" id="update_time" class="btn btn-info" style="width: 200px;">
+            <h3>LAST UPDATE </h3>
         </button>
 
         <table class="table table-hover">
@@ -135,20 +242,13 @@
             </tbody>
         </table>
     </div>
+    <code>
+        <h4>MADE IN INDIA</h4>
+        <span>DEVELOPED BY AMAN KUMAR<br>
+        Contact - aman.kumar5561@gmail.com</span>
+    </code>
 
     <script src="index.js"></script>
 </body>
-<!-- <script src='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js'></script> -->
-
-<script>
-//   mapboxgl.accessToken = 'pk.eyJ1IjoiYW1rdW1hciIsImEiOiJja2ZpZDI4MTAwNXNsMnhxanJ6ZmVwNnBzIn0.tzvk7wExaAngzlcBxmqzTA';
-//   var map = new mapboxgl.Map({
-//     container: 'map',
-//     style: 'mapbox://styles/mapbox/streets-v11', 
-//     zoom : 1
-//   });
-</script>
-
-
-
+    
 </html>
